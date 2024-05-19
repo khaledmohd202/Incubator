@@ -1,0 +1,37 @@
+class AppStrings{
+  static const String appName = "My Incubator";
+  static const String appDescription = "Let's get started!";
+  static const String onboardingDescription1 = 'Find a lot of specialist doctors in one place';
+  static const String onboardingDescription2 = 'Get advice from a doctor you believe in.';
+  static const String onboardingDescription3 = 'Get a doctor\'s appointment easily.';
+  // static const String home = "Home";
+  // static const String settings = "Settings";
+  // static const String profile = "Profile";
+  // static const String logout = "Logout";
+  // static const String login = "Login";
+  // static const String register = "Register";
+  // static const String email = "Email";
+  // static const String password = "Password";
+  // static const String confirmPassword = "Confirm Password";
+  // static const String forgotPassword = "Forgot Password";
+  // static const String dontHaveAccount = "Don't have an account?";
+  // static const String haveAccount = "Already have an account?";
+  // static const String resetPassword = "Reset Password";
+  // static const String resetPasswordInstructions = "Enter your email address and we'll send you a link to reset your password";
+  // static const String resetPasswordSuccess = "Password reset email sent. Check your inbox!";
+  // static const String resetPasswordFailed = "Failed to send password reset email. Please try again.";
+  // static const String resetPasswordEmailSent = "Password reset email sent. Check your inbox!";
+  // static const String resetPasswordEmailFailed = "Failed to send password reset email. Please try again.";
+  // static const String resetPasswordEmailInvalid = "The email address is badly formatted.";
+  // static const String resetPasswordEmailNotFound = "There is no user record corresponding to this identifier. The user may have been deleted.";
+  // static const String resetPasswordEmailUnknown = "An unknown error occurred. Please try again.";
+  // static const String resetPasswordEmailUserDisabled = "The user account has been disabled by an administrator.";
+  // static const String resetPasswordEmailTooManyRequests = "We have blocked all requests from this device due to unusual activity. Try again later.";
+  // static const String resetPasswordEmailOperationNotAllowed = "Password sign-in is disabled for this project.";
+  // static const String resetPasswordEmailWeakPassword = "The password must be 6 characters long or more.";
+  // static const String resetPasswordEmailInvalidEmail = "The email address is badly formatted.";
+  // static const String resetPasswordEmailUserNotFound = "There is no user record corresponding to this identifier. The user may have been deleted.";
+  // static const String resetPasswordEmailUserDisabled = "The user account has been disabled by an administrator.";
+  // static const String resetPasswordEmailTooManyRequests = "We have blocked all requests from this device due to unusual activity. Try again later.";
+  // static const String resetPasswordEmailOperationNotAllowed = "Password sign-in is disabled for this project.";
+}
