@@ -24,4 +24,10 @@ class AppIcons {
   static String circleUserIcon = '$_iconPath/circle-user.svg';
   static String viewFileIcon = '$_iconPath/view_file.svg';
   static String menuIcon = '$_iconPath/menu.svg';
+  static String onboarding_1Icon = '$_iconPath/onboarding-1.svg';
+  static String onboarding_2Icon = '$_iconPath/onboarding-1.svg';
+  static String onboarding_3Icon = '$_iconPath/onboarding-3.svg';
+  static String doctor_1Icon = '$_iconPath/doctor-1.svg';
+  static String doctor_2Icon = '$_iconPath/doctor-1.svg';
+  static String doctor_3Icon = '$_iconPath/doctor-1.svg';
 }

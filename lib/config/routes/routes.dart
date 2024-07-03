@@ -11,6 +11,7 @@ import 'package:incubator/features/cases/presentation/pages/cases_page.dart';
 import 'package:incubator/features/home/presentation/pages/home_page.dart';
 import 'package:incubator/features/incubator/presentation/pages/incubator_page.dart';
 import 'package:incubator/features/notification/presentation/pages/notification_page.dart';
+import 'package:incubator/features/onboarding/presentation/pages/onboarding_screen.dart';
 import 'package:incubator/features/parent_features/parent_files/presentation/pages/parent_files_page.dart';
 import 'package:incubator/features/parent_features/parent_home/presentation/pages/parent_home_page.dart';
 import 'package:incubator/features/parent_features/parent_home/presentation/pages/parent_welcome_page.dart';
@@ -34,6 +35,7 @@ import 'package:incubator/features/visiting/presentation/pages/visiting_page.dar
 class Routes {
   static const String initialRoute = '/SplashPage';
   static const String onboardingRoute = '/OnboardingPage';
+  static const String onboardingScreen = '/OnboardingScreen';
   static const String userRoute = '/UserPage';
   static const String incubatorLoginRoute = '/IncubatorLoginPage';
   static const String parentLoginRoute = '/ParentLoginPage';
@@ -68,6 +70,7 @@ class Routes {
 final routes = <String, WidgetBuilder>{
   Routes.initialRoute: (context) => const SplashPage(),
   Routes.onboardingRoute: (context) => const OnboardingPage(),
+  Routes.onboardingScreen: (context) => const OnboardingScreen(),
   Routes.userRoute: (context) => const UserPage(),
   Routes.incubatorLoginRoute: (context) => const IncubatorLoginPage(),
   Routes.parentLoginRoute: (context) => const ParentLoginPage(),
@@ -88,10 +91,11 @@ final routes = <String, WidgetBuilder>{
   Routes.uploadFilePageRoute: (context) => const UploadFilePage(),
   Routes.caseDetailsPageRoute: (context) => CaseDetailsPage(),
   Routes.editProfilePageRoute: (context) => const EditProfilePage(),
-  Routes.parentWelcomePageRoute: (context) =>  ParentWelcomePage(),
+  Routes.parentWelcomePageRoute: (context) => ParentWelcomePage(),
   Routes.parentHomePageRoute: (context) => const ParentHomePage(),
   Routes.parentSearchPageRoute: (context) => const ParentSearchPage(),
-  Routes.parentNotificationPageRoute: (context) => const ParentNotificationPage(),
+  Routes.parentNotificationPageRoute: (context) =>
+      const ParentNotificationPage(),
   Routes.parentProfilePageRoute: (context) => const ParentProfilePage(),
   Routes.parentFilesPageRoute: (context) => const ParentFilesPage(),
   Routes.parentVisitingPageRoute: (context) => const ParentVisitingPage(),

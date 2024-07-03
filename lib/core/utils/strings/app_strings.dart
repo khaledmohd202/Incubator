@@ -1,9 +1,9 @@
 class AppStrings{
   static const String appName = "My Incubator";
   static const String appDescription = "Let's get started!";
-  static const String onboardingDescription1 = 'Find a lot of specialist doctors in one place';
-  static const String onboardingDescription2 = 'Get advice from a doctor you believe in.';
-  static const String onboardingDescription3 = 'Get a doctor\'s appointment easily.';
+  static const String skipString = "Skip";
+  static const String nextString = "Next";
+  static const String getStartedString = "Get Started";
   // static const String home = "Home";
   // static const String settings = "Settings";
   // static const String profile = "Profile";
