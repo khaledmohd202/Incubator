@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:incubator/config/routes/routes.dart';
 import 'package:incubator/core/utils/assets/app_icons.dart';
 import 'package:incubator/core/utils/colors/app_colors.dart';
+import 'package:incubator/features/auth/presentation/widgets/login_text_field.dart';
+import 'package:incubator/features/onboarding/presentation/widgets/custom_text_button.dart';
 
 class IncubatorLoginPage extends StatelessWidget {
   const IncubatorLoginPage({super.key});
@@ -12,16 +14,16 @@ class IncubatorLoginPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: const Text(
+        title: Text(
           'Login as Incubator',
           style: TextStyle(
-            fontSize: 20,
+            fontSize: 20.sp,
             fontWeight: FontWeight.bold,
           ),
         ),
         centerTitle: true,
         leading: Padding(
-          padding: const EdgeInsets.only(left: 10),
+          padding: EdgeInsets.only(left: 10.w),
           child: InkWell(
             onTap: () {
               Navigator.pop(context);
@@ -33,147 +35,55 @@ class IncubatorLoginPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: 15,
-                horizontal: 20,
-              ),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: AppColors.greyColor.withOpacity(0.4),
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: TextFormField(
-                  onTap: () {},
-                  decoration: InputDecoration(
-                    hintText: 'Enter your email',
-                    hintStyle: TextStyle(
-                      color: AppColors.blackColor.withOpacity(0.3),
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: const BorderRadius.all(Radius.circular(30)),
-                      borderSide: BorderSide(color: AppColors.primaryColor),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: const BorderRadius.all(Radius.circular(30)),
-                      borderSide: BorderSide(color: AppColors.primaryColor),
-                    ),
-                    prefixIcon: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 10.0,
-                        horizontal: 15,
-                      ),
-                      child: SvgPicture.asset(
-                        AppIcons.emailIcon,
-                      ),
-                    ),
-                  ),
-                ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+            Text(
+              'Welcome Back!',
+              style: TextStyle(
+                fontSize: 30.sp,
+                color: AppColors.primaryColor,
+                fontWeight: FontWeight.bold,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: 10,
-                horizontal: 20,
-              ),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: AppColors.greyColor.withOpacity(0.4),
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    // 1- hint text
-                    hintText: 'Enter your password',
-                    hintStyle: TextStyle(
-                      color: AppColors.blackColor.withOpacity(0.3),
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: const BorderRadius.all(Radius.circular(30)),
-                      borderSide: BorderSide(color: AppColors.primaryColor),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: const BorderRadius.all(Radius.circular(30)),
-                      borderSide: BorderSide(color: AppColors.primaryColor),
-                    ),
-                    prefixIcon: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 10.0,
-                        horizontal: 15,
-                      ),
-                      // 2- prefixIcon
-                      child: SvgPicture.asset(
-                        AppIcons.passwordIcon,
-                      ),
-                    ),
-                    // 2- suffixIcon
-                    suffixIcon: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 10.0,
-                        horizontal: 15,
-                      ),
-                      child: Icon(
-                        Icons.visibility_off_outlined,
-                        color: AppColors.blackColor.withOpacity(0.3),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.08),
+            LoginTextField(
+              hintText: 'Enter your email',
+              prefixIcon: AppIcons.emailIcon,
             ),
-            Padding(
-              padding: const EdgeInsets.only(
-                right: 20,
-                left: 20,
-                bottom: 30,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.pushNamed(context, Routes.forgotPasswordRoute);
-                    },
-                    child: Text(
-                      'Forgot Password?',
-                      style: TextStyle(
-                        color: AppColors.blackColor.withOpacity(0.3),
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                      ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+            LoginTextField(
+              hintText: 'Enter your password',
+              prefixIcon: AppIcons.passwordIcon,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      Routes.forgotPasswordRoute,
+                    );
+                  },
+                  child: Text(
+                    'Forgot Password?',
+                    style: TextStyle(
+                      color: AppColors.blackColor.withOpacity(0.4),
+                      fontSize: 12.sp,
                     ),
                   ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: ElevatedButton(
-                // 2- onPressed
-                onPressed: () {
-                  Navigator.pushNamed(context, Routes.homePageRoute);
-                },
-                style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(double.infinity, 50),
-                  backgroundColor: AppColors.primaryColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  padding: const EdgeInsets.symmetric(vertical: 15),
                 ),
-                child: Text(
-                  // 3- button text
-                  'Login',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.whiteColor,
-                  ),
-                ),
-              ),
+                SizedBox(width: MediaQuery.of(context).size.width * 0.02),
+              ],
             ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+            CustomTextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, Routes.homePageRoute);
+              },
+              backgroundColor: AppColors.primaryColor,
+              foregroundColor: AppColors.whiteColor,
+              text: 'Login',
+            )
           ],
         ),
       ),

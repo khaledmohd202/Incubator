@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:incubator/core/utils/colors/app_colors.dart';
 
 class CustomTextButton extends StatelessWidget {
   const CustomTextButton({
@@ -15,25 +17,23 @@ class CustomTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(
-        left: 24,
-        bottom: 15,
-      ),
+    return Container(
+      height: 55.h,
+      width: MediaQuery.of(context).size.width * 0.9,
+      decoration:
+          BoxDecoration(color: AppColors.primaryColor, shape: BoxShape.circle),
       child: TextButton(
-        // onPressed
         onPressed: onPressed,
-        style: TextButton.styleFrom(
-          // foregroundColor
+        style: ElevatedButton.styleFrom(
           foregroundColor: foregroundColor,
-          // backgroundColor
           backgroundColor: backgroundColor,
-          minimumSize: const Size(370, 60),
         ),
         child: Text(
-          // text
           text,
-          style: const TextStyle(fontSize: 20),
+          style: TextStyle(
+            fontSize: 20.sp,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );

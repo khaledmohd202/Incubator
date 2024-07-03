@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:incubator/config/routes/routes.dart';
 import 'package:incubator/core/utils/colors/app_colors.dart';
+import 'package:incubator/features/auth/presentation/pages/forgot_password_page.dart';
 import 'package:pinput/pinput.dart';
 
 class VerifyingEmailPage extends StatelessWidget {
   VerifyingEmailPage({super.key});
   final defaultPinTheme = PinTheme(
-    width: 54,
-    height: 60,
+    width: 54.w,
+    height: 55.h,
     textStyle: TextStyle(
-      fontSize: 24,
+      fontSize: 24.sp,
       color: AppColors.blackColor,
       fontWeight: FontWeight.bold,
     ),
@@ -18,7 +20,7 @@ class VerifyingEmailPage extends StatelessWidget {
       borderRadius: BorderRadius.circular(10),
       border: Border.all(
         color: AppColors.greyColor,
-        width: 2,
+        width: 2.w,
       ),
     ),
   );
@@ -29,31 +31,31 @@ class VerifyingEmailPage extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 10,
-              vertical: 25,
+            padding: EdgeInsets.symmetric(
+              horizontal: 10.w,
+              vertical: 25.h,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(height: 40),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.04),
                 Text(
                   'Please check your email',
                   textAlign: TextAlign.start,
                   style: TextStyle(
-                    fontSize: 28,
+                    fontSize: 28.sp,
                     color: AppColors.primaryColor,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 40),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.04),
                 RichText(
                   textAlign: TextAlign.center,
                   text: TextSpan(
                     style: TextStyle(
                       color: AppColors.blackColor.withOpacity(0.3),
                       fontWeight: FontWeight.w600,
-                      fontSize: 16,
+                      fontSize: 14.sp,
                     ),
                     children: [
                       const TextSpan(
@@ -63,7 +65,7 @@ class VerifyingEmailPage extends StatelessWidget {
                         text: 'contact.cashierc@gmail.com',
                         style: TextStyle(
                           color: AppColors.primaryColor,
-                          fontSize: 16,
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -71,7 +73,7 @@ class VerifyingEmailPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(height: 80),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.09),
                 Pinput(
                   length: 6,
                   defaultPinTheme: defaultPinTheme,
@@ -79,7 +81,7 @@ class VerifyingEmailPage extends StatelessWidget {
                     decoration: defaultPinTheme.decoration!.copyWith(
                       border: Border.all(
                         color: AppColors.primaryColor,
-                        width: 2,
+                        width: 2.w,
                       ),
                     ),
                   ),
@@ -87,7 +89,7 @@ class VerifyingEmailPage extends StatelessWidget {
                     decoration: defaultPinTheme.decoration!.copyWith(
                       border: Border.all(
                         color: AppColors.primaryColor,
-                        width: 2,
+                        width: 2.w,
                       ),
                     ),
                   ),
@@ -95,7 +97,7 @@ class VerifyingEmailPage extends StatelessWidget {
                     decoration: defaultPinTheme.decoration!.copyWith(
                       border: Border.all(
                         color: AppColors.redColor,
-                        width: 2,
+                        width: 2.w,
                       ),
                     ),
                   ),
@@ -115,7 +117,7 @@ class VerifyingEmailPage extends StatelessWidget {
                         : 'Invalid code, please try again';
                   },
                 ),
-                const SizedBox(height: 70),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.08),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.pushNamed(context, Routes.resetPasswordRoute);
@@ -125,14 +127,14 @@ class VerifyingEmailPage extends StatelessWidget {
                     minimumSize:
                         Size(MediaQuery.of(context).size.width * 0.9, 50),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(12.r),
                     ),
                   ),
                   child: Text(
                     'Verify',
                     style: TextStyle(
                       color: AppColors.whiteColor,
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -144,7 +146,7 @@ class VerifyingEmailPage extends StatelessWidget {
                       'Didn\'t receive the code? ',
                       style: TextStyle(
                         color: AppColors.blackColor.withOpacity(0.3),
-                        fontSize: 16,
+                        fontSize: 14.sp,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -154,7 +156,7 @@ class VerifyingEmailPage extends StatelessWidget {
                         'Resend code',
                         style: TextStyle(
                           color: AppColors.primaryColor,
-                          fontSize: 16,
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

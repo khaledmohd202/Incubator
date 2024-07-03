@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:incubator/config/routes/routes.dart';
 import 'package:incubator/core/utils/assets/app_images.dart';
 import 'package:incubator/core/utils/colors/app_colors.dart';
@@ -34,22 +35,18 @@ class _SplashPageState extends State<SplashPage> {
             left: MediaQuery.of(context).size.width / 3.7,
             child: Column(
               children: [
-                Image.asset(
-                  AppImages.splash,
-                  width: 200,
-                  height: 200,
-                ),
-                const Text(
+                Image.asset(AppImages.splash),
+                Text(
                   AppStrings.appName,
                   style: TextStyle(
-                    shadows: [
+                    shadows:const [
                       Shadow(
                         blurRadius: 10.0,
                         color: Colors.black12,
                         offset: Offset(5.0, 5.0),
                       ),
                     ],
-                    fontSize: 28,
+                    fontSize: 28.sp,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),

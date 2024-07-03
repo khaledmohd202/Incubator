@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:incubator/config/routes/routes.dart';
 import 'package:incubator/core/utils/assets/app_icons.dart';
 import 'package:incubator/core/utils/colors/app_colors.dart';
+import 'package:incubator/features/auth/presentation/pages/forgot_password_page.dart';
+import 'package:incubator/features/onboarding/presentation/widgets/custom_text_button.dart';
 
 class PasswordChangedPage extends StatelessWidget {
   const PasswordChangedPage({super.key});
@@ -14,69 +17,52 @@ class PasswordChangedPage extends StatelessWidget {
         automaticallyImplyLeading: false,
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 10,
-          vertical: 25,
+        padding: EdgeInsets.symmetric(
+          horizontal: 10.w,
+          vertical: 25.h,
         ),
         child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const SizedBox(height: 40),
-              SvgPicture.asset(
-                AppIcons.checkBoxOnIcon,
-                height: 100,
-                width: 100,
-              ),
-              const SizedBox(height: 20),
-              Text(
-                'Password Changed',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 34,
-                  color: AppColors.primaryColor,
-                  fontWeight: FontWeight.w900,
+          child: Center(
+            child: Column(
+              children: [
+                SizedBox(height: MediaQuery.of(context).size.height * 0.08),
+                SvgPicture.asset(
+                  AppIcons.checkBoxOnIcon,
+                  height: 100.h,
+                  width: 100.w,
                 ),
-              ),
-              const SizedBox(height: 20),
-              Text(
-                'Your password has been changed\n successfully.',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: AppColors.blackColor.withOpacity(0.4),
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
+                SizedBox(height: MediaQuery.of(context).size.height * 0.04),
+                Text(
+                  'Password Changed',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 34.sp,
+                    color: AppColors.primaryColor,
+                    fontWeight: FontWeight.w900,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 90),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
-                child: ElevatedButton(
-                  // 2- onPressed
+                SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                Text(
+                  'Your password has been changed\n successfully.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: AppColors.blackColor.withOpacity(0.4),
+                    fontSize: 15.sp,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.15),
+                CustomTextButton(
                   onPressed: () {
                     Navigator.pushNamedAndRemoveUntil(
                         context, Routes.incubatorLoginRoute, (route) => false);
                   },
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(double.infinity, 50),
-                    backgroundColor: AppColors.primaryColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    padding: const EdgeInsets.symmetric(vertical: 15),
-                  ),
-                  child: Text(
-                    // 3- button text
-                    'Back to Login',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.whiteColor,
-                    ),
-                  ),
+                  backgroundColor: AppColors.primaryColor,
+                  foregroundColor: AppColors.whiteColor,
+                  text: 'Back to Login',
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

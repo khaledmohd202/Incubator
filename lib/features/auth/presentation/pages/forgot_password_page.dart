@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:incubator/config/routes/routes.dart';
 import 'package:incubator/core/utils/assets/app_icons.dart';
 import 'package:incubator/core/utils/colors/app_colors.dart';
+import 'package:incubator/features/auth/presentation/widgets/login_text_field.dart';
+import 'package:incubator/features/onboarding/presentation/widgets/custom_text_button.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
   const ForgotPasswordPage({super.key});
@@ -13,129 +15,88 @@ class ForgotPasswordPage extends StatelessWidget {
         appBar: AppBar(
           automaticallyImplyLeading: false,
         ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 10,
-            vertical: 25,
-          ),
-          child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Forgot Password?',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 28,
-                  color: AppColors.primaryColor,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 40),
-              Text(
-                'Don’t worry! It happens. Please enter the email associated with your account.',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: AppColors.blackColor.withOpacity(0.4),
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              const SizedBox(height: 40),
-              Text(
-                'Email Address',
-                style: TextStyle(
-                  color: AppColors.blackColor.withOpacity(0.5),
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              const SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.greyColor.withOpacity(0.4),
-                    borderRadius: BorderRadius.circular(30),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 10.h,
+              vertical: 25.w,
+            ),
+            child: Column(
+              children: [
+                Text(
+                  'Forgot Password?',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 28.sp,
+                    color: AppColors.primaryColor,
+                    fontWeight: FontWeight.bold,
                   ),
-                  child: TextFormField(
-                    onTap: () {},
-                    decoration: InputDecoration(
-                      hintText: 'Enter your email',
-                      hintStyle: TextStyle(
-                        color: AppColors.blackColor.withOpacity(0.3),
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(30)),
-                        borderSide: BorderSide(color: AppColors.primaryColor),
-                      ),
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 10.0,
-                          horizontal: 15,
-                        ),
-                        child: SvgPicture.asset(
-                          AppIcons.emailIcon,
-                        ),
-                      ),
+                ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+                Text(
+                  'Don’t worry! It happens. Please enter the email associated with your account.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: AppColors.blackColor.withOpacity(0.4),
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.04),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    ' Email Address',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      color: AppColors.blackColor.withOpacity(0.5),
+                      fontSize: 15.sp,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 60),
-              Padding(
-                padding: const EdgeInsets.all(8),
-                child: ElevatedButton(
-                  // 2- onPressed
+                SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                LoginTextField(
+                  hintText: 'Enter your email',
+                  prefixIcon: AppIcons.emailIcon,
+                ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.06),
+                CustomTextButton(
                   onPressed: () {
                     Navigator.pushNamed(context, Routes.verifyingEmailRoute);
                   },
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(double.infinity, 50),
-                    backgroundColor: AppColors.primaryColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    padding: const EdgeInsets.symmetric(vertical: 15),
-                  ),
-                  child: Text(
-                    'Send Code',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.whiteColor,
-                    ),
-                  ),
+                  backgroundColor: AppColors.primaryColor,
+                  foregroundColor: AppColors.whiteColor,
+                  text: 'Send Code',
                 ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Remember your password? ',
-                    style: TextStyle(
-                      color: AppColors.blackColor.withOpacity(0.3),
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: Text(
-                      'Login',
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Remember your password? ',
                       style: TextStyle(
-                        color: AppColors.primaryColor,
+                        color: AppColors.blackColor.withOpacity(0.3),
                         fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
-                  ),
-                ],
-              )
-            ],
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text(
+                        'Login',
+                        style: TextStyle(
+                          color: AppColors.primaryColor,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
         ));
   }

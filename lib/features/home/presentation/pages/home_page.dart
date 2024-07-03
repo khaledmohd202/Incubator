@@ -1,6 +1,8 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:incubator/core/utils/colors/app_colors.dart';
+import 'package:incubator/features/auth/presentation/pages/forgot_password_page.dart';
 import 'package:incubator/features/notification/presentation/pages/notification_page.dart';
 import 'package:incubator/features/profile/presentation/pages/profile_page.dart';
 import 'package:incubator/features/search/presentation/pages/search_page.dart';
@@ -22,7 +24,7 @@ class _HomePageState extends State<HomePage> {
     Icon(Icons.person),
   ];
   final screens = [
-     WelcomePage(),
+    WelcomePage(),
     const SearchPage(),
     const NotificationPage(),
     const ProfilePage(),
@@ -49,7 +51,7 @@ class _HomePageState extends State<HomePage> {
             buttonBackgroundColor: AppColors.primaryColor,
             items: icons,
             index: index,
-            height: 60,
+            height: 53.h,
             animationDuration: const Duration(milliseconds: 300),
             animationCurve: Curves.easeInOut,
             onTap: (value) {
